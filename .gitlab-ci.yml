@@ -3,9 +3,11 @@ stages:
   - build
   - student_info
 
+GOOGLE_API_KEY: AIzaSyC-JZ6_EXAMPLE
+
 variables:
   DOCKERHUB_REGISTRY: registry.hub.docker.com
-  DOCKERHUB_REPO: dlnsky17/laba4
+  DOCKERHUB_REPO: tsebak/laba4
   LATEST_TAG: latest
   COMMIT_TAG: $CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA
   DOCKERHUB_USERNAME: dlnsky17
@@ -46,6 +48,6 @@ build_commit:
 student_info:
   stage: student_info
   script:
-    - echo "Dolnskyi Arsen"
+    - echo "Tsebak Mykhailo"
   needs:
     - build_latest
