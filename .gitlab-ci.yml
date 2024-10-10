@@ -1,0 +1,51 @@
+stages:
+  - test
+  - build
+  - student_info
+
+variables:
+  DOCKERHUB_REGISTRY: registry.hub.docker.com
+  DOCKERHUB_REPO: dlnsky17/laba4
+  LATEST_TAG: latest
+  COMMIT_TAG: $CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA
+  DOCKERHUB_USERNAME: dlnsky17
+
+test:
+  stage: test
+  image: python:3.9
+  script:
+    - pip install -r requirements.txt 
+    - python -m pytest
+
+build_latest:
+  stage: build
+  image: docker:dind
+  services:
+    - docker:dind
+  script:
+    - echo "Building Docker image - latest"
+    - docker build -t $DOCKERHUB_REGISTRY/$DOCKERHUB_REPO:$LATEST_TAG .
+    - echo "$DOCKERHUB_TOKEN" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin $DOCKERHUB_REGISTRY
+    - docker push $DOCKERHUB_REGISTRY/$DOCKERHUB_REPO:$LATEST_TAG
+  needs:
+    - test
+
+build_commit:
+  stage: build
+  image: docker:dind
+  services:
+    - docker:dind
+  script:
+    - echo "Building Docker image - commit"
+    - docker build -t $DOCKERHUB_REGISTRY/$DOCKERHUB_REPO:$COMMIT_TAG .
+    - echo "$DOCKERHUB_TOKEN" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin $DOCKERHUB_REGISTRY
+    - docker push $DOCKERHUB_REGISTRY/$DOCKERHUB_REPO:$COMMIT_TAG
+  needs:
+    - test
+
+student_info:
+  stage: student_info
+  script:
+    - echo "Dolnskyi Arsen"
+  needs:
+    - build_latest
