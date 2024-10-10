@@ -2,6 +2,8 @@ import re
 import shlex
 from maltiverse import Maltiverse
 
+parol="1939njfjslxnbn2"
+
 class Parser:
     IP = 0
 
