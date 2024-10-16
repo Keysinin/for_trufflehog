@@ -10,7 +10,7 @@ variables:
   DOCKERHUB_REPO: tsebak/laba4
   LATEST_TAG: latest
   COMMIT_TAG: $CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA
-  DOCKERHUB_USERNAME: dlnsky17
+  DOCKERHUB_USERNAME: tsebak11
 
 test:
   stage: test
