@@ -5,8 +5,10 @@ from maltiverse import Maltiverse
 parol="1939njfjslxnbn2"
 AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
 AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+passs = "jifjoisjef0909023rr"
 
 "-----BEGIN DSA PRIVATE KEY-----"
+
 class Parser:
     IP = 0
 
@@ -42,3 +44,4 @@ if __name__ == '__main__':
                 print(f"{ip} - No Info")
     except:
         print("An error has occured")
+        print("kuku")
