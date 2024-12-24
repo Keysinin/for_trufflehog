@@ -1,4 +1,4 @@
-github_token = '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'
+github_token = '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'
 
 slack_token = 'xoxp-7442821481331-7440032441317-8203695092662-78a155c4d8fb28624c8c3b4cdf2b2254'
 slack_token_bot = 'xoxb-7442821481331-8203695100758-lkI7KbdkFt27ehz49lWedSRq'
